@@ -14,7 +14,7 @@ public class JDBC {
                 System.out.println("1. Insert a new student");
                 System.out.println("2. View all students");
                 System.out.println("3. Update a student's GPA");
-                System.out.println("4. Delete a student by ID");
+                System.out.println("4. Delete a student by ID.(OPTION 4 ISN'T WORKING AT THE MOMENT)");
                 System.out.println("5. Exit");
                 int choice = scanner.nextInt();
                 scanner.nextLine();
@@ -68,20 +68,7 @@ public class JDBC {
                         }
                         break;
 
-                    case 4:
-                        System.out.println("Enter students id to remove from database");
-                        int delId = scanner.nextInt();
-                        scanner.nextLine();
-                        String delQuery = "DELETE FROM studentsdata WHERE id=?";
-                        PreparedStatement delStatement = con.prepareStatement(delQuery);
-                        delStatement.setInt(1, delId);
-                        int rowsDeleted = delStatement.executeUpdate();
-                        if (rowsDeleted > 0) {
-                            System.out.println("Student deleted successfully!");
-                        } else {
-                            System.out.println("No student found with ID " + delId);
-                        }
-                        break;
+
 
                     case 5:
                         System.out.println("EXITING THE PROGRAM>>>>>>>>>>>");
